@@ -9,10 +9,14 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.3.5",
+    "@types/netlify-identity-widget": "^1.9.3",
     "nuxt": "3.0.0-rc.11"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.1",
-    "axios": "^1.1.2"
+    "@pinia/nuxt": "^0.4.3",
+    "pinia": "^2.0.23",
+    "axios": "^1.1.2",
+    "netlify-identity-widget": "^1.9.2"
   }
 }

@@ -4,7 +4,14 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
     srcDir: "src/",
     modules: [
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
+        [
+            '@pinia/nuxt', {
+                autoImports: [
+                    'defineStore'
+                ]
+            },
+        ],
     ],
     runtimeConfig: {
         notionSecret: process.env.NOTION_SECRET,

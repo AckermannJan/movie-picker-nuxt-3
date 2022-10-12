@@ -1,5 +1,6 @@
 <template>
   <div id="netlify-modal" />
+  <Search />
   <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       @click="increment"
@@ -20,14 +21,13 @@
   >
     Login
   </button>
-
-  {{ userStore.user }}
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import netlifyIdentity from 'netlify-identity-widget'
 import { useUserStore } from '@/stores/userStore'
+import Search from "~/components/search/Search.vue";
 
 const userStore = useUserStore()
 

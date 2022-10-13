@@ -1,6 +1,7 @@
 <template>
   <div id="netlify-modal" />
   <Search />
+  <MovieList />
   <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       @click="increment"
@@ -66,19 +67,21 @@ function login() {
 
 // lifecycle hooks
 onMounted(() => {
-  console.log(`The initial count is ${count.value}.`)
-  netlifyIdentity.init({
-    container: '#netlify-modal',
-    APIUrl: "https://vffskt-movie-picker.netlify.app/.netlify/identity",
-  });
-  const user = netlifyIdentity.currentUser();
-  console.log(user)
-  userStore.setUser({
-    email: user.email,
-    access_token: user.token.access_token,
-    expires_at: user.token.expires_at,
-    refresh_token: user.token.refresh_token,
-    token_type: user.token.token_type
-  })
+  try {
+    netlifyIdentity.init({
+      container: '#netlify-modal',
+      APIUrl: "https://vffskt-movie-picker.netlify.app/.netlify/identity",
+    });
+    const user = netlifyIdentity.currentUser();
+    userStore.setUser({
+      email: user.email,
+      access_token: user.token.access_token,
+      expires_at: user.token.expires_at,
+      refresh_token: user.token.refresh_token,
+      token_type: user.token.token_type
+    })
+  } catch (e) {
+    console.info('could not get user')
+  }
 })
 </script>

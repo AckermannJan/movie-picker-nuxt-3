@@ -1,18 +1,18 @@
 <template>
-  <div class="w-full bg-slate-50 mb-8 rounded-md shadow-sm flex">
-    <Cover :cover="movie.poster_path"/>
-    <Details :title="movie.title" :release-date="movie.release_date" :overview="movie.overview" />
+  <div class="mb-8 flex w-full rounded-md bg-slate-50 shadow-sm">
+    <Cover :cover="props.movie.poster_path" />
+    <Details :title="props.movie.title" :release-date="props.movie.release_date" :overview="props.movie.overview" />
   </div>
 </template>
 
 <script setup lang="ts">
-import {movie} from "~/types/movie";
-import Cover from "~/components/movieList/movieRow/Cover.vue";
-import Details from "~/components/movieList/movieRow/Details.vue";
+import { movie as movieType } from '~/types/movie'
+import Cover from '~/components/movieList/movieRow/Cover.vue'
+import Details from '~/components/movieList/movieRow/Details.vue'
 
-export interface Props {
-  movie: movie
+interface Props {
+  movie: movieType
 }
 
-const { movie } = defineProps<Props>()
+const props = defineProps<Props>()
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-gray-100 h-screen text-gray-600">
-    <main class="max-w-7xl m-auto pt-24">
+  <div class="h-screen bg-gray-100 text-gray-600">
+    <main class="m-auto max-w-7xl pt-24">
       <slot />
     </main>
   </div>
